@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="qsh.dao.UserDAO">
+
+    <insert id="addUser" parameterType="qsh.entity.User" useGeneratedKeys="true" keyProperty="user_id">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            username, password,
+            <if test='userType != null and userType != "" '>
+                user_type,
+            </if>
+            <if test='gender != null and gender != "" '>
+                gender,
+            </if>
+            <if test='phone != null and phone != "" '>
+                phone,
+            </if>
+            <if test='address != null and address != "" '>
+                address,
+            </if>
+            <if test='schoolName != null and schoolName != "" '>
+                school_name,
+            </if>
+            <if test='description != null and description != "" '>
+                description,
+            </if>
+            <if test='birthday != null and birthday != "" '>
+                birthday,
+            </if>
+            <if test='image != null and image != "" '>
+                image
+            </if>
+        </trim>
+
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            #{username}, #{password},
+            <if test='userType != null and userType != "" '>
+                #{userType},
+            </if>
+            <if test='gender != null and gender != "" '>
+                #{gender},
+            </if>
+            <if test='phone != null and phone != "" '>
+                #{phone},
+            </if>
+            <if test='address != null and address != "" '>
+                #{address},
+            </if>
+            <if test='schoolName != null and schoolName != "" '>
+                #{schoolName},
+            </if>
+            <if test='description != null and description != "" '>
+                #{description},
+            </if>
+            <if test='birthday != null and birthday != "" '>
+                #{birthday},
+            </if>
+            <if test='image != null and image != "" '>
+                #{image}
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateUser">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test='username != null and username != "" '>
+                username = #{username},
+            </if>
+            <if test='password != null and password != "" '>
+                password = #{password},
+            </if>
+            <if test='userType != null and userType != "" '>
+                user_type = #{userType},
+            </if>
+            <if test='gender != null'>
+                gender = #{gender},
+            </if>
+            <if test='phone != null'>
+                phone = #{phone},
+            </if>
+            <if test='address != null'>
+                address = #{address},
+            </if>
+            <if test='schoolName != null and schoolName != "" '>
+                school_name = #{schoolName},
+            </if>
+            <if test='description != null and description != "" '>
+                description = #{description},
+            </if>
+            <if test='birthday != null and birthday != "" '>
+                birthday = #{birthday},
+            </if>
+            <if test='image != null and image != "" '>
+                image = #{image}
+            </if>
+        </trim>
+        where user_id = #{userId}
+    </update>
+
+
+</mapper>
