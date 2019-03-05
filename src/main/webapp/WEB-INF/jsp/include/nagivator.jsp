@@ -10,12 +10,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">班级通讯录</a>
+            <a class="navbar-brand">班级通讯录</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a href="listByUser">我加入的班级</a></li>
-                <li><a href="#about">我管理的班级</a></li>
+                <li><a href="listByAdmin">我管理的班级</a></li>
                 <li><a href="#contact">浏览</a></li>
             </ul>
             <ul class="pull-right nav navbar-nav">

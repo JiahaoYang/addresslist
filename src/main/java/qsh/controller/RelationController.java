@@ -15,6 +15,7 @@ import qsh.util.Page;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+@SuppressWarnings("Duplicates")
 @Controller
 public class RelationController {
 

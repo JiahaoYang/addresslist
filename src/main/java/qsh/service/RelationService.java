@@ -10,6 +10,7 @@ import qsh.entity.User;
 import javax.annotation.Resource;
 import java.util.*;
 
+@SuppressWarnings("ALL")
 @Service
 public class RelationService {
 
@@ -48,6 +49,24 @@ public class RelationService {
         List<ListByUserDTO> result = new ArrayList<>();
         for (Relation relation: relations) {
             Class clazz = classService.getById(relation.getClassId());
+            List<Relation> list = getByClass(clazz.getClassId());
+            List<User> users = new ArrayList<>();
+            for (Relation r: list) {
+                User user = userDAO.getById(r.getUserId());
+                users.add(user);
+            }
+            ListByUserDTO listByUserDTO = new ListByUserDTO();
+            listByUserDTO.setClazz(clazz);
+            listByUserDTO.setUsers(users);
+            result.add(listByUserDTO);
+        }
+        return result;
+    }
+
+    public List<ListByUserDTO> listByAdmin(List<Class> classes) {
+        List<ListByUserDTO> result = new ArrayList<>();
+        for (Class clazz: classes) {
+            clazz = classService.getById(clazz.getClassId());
             List<Relation> list = getByClass(clazz.getClassId());
             List<User> users = new ArrayList<>();
             for (Relation r: list) {

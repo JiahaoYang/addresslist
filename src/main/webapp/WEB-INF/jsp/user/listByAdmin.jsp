@@ -2,10 +2,42 @@
 <%@include file="../include/header.jsp" %>
 
 
+<script>
+    $(function () {
+        $("#confirmDelete").click(function () {
+            window.location.href = 'deleteClass?classId=' + $("#deleteClassId").val();
+        })
+    });
+
+    function showDeleteModal(classId) {
+        $("#deleteClassId").val(classId);
+        $("#myModal").modal("show");
+    }
+</script>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">确认解散该班级？</h4>
+                <input id="deleteClassId" type="hidden" value="">
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+                <button id="confirmDelete" class="btn btn-primary" type="button">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <%@include file="../include/nagivator.jsp" %>
 <br>
 <br>
-<h3>我加入的班级</h3>
+<h3>我管理的班级</h3>
+<a class="btn btn-success" href="addClassPage">新建班级</a>
 <table class="table table-hover">
     <c:forEach items="${list}" var="l">
         <tr>
@@ -17,6 +49,19 @@
             </td>
             <td>管理人：${l.clazz.admin.username}</td>
             <td>所属学校：${l.clazz.school.schoolName}</td>
+            <td></td>
+            <td>
+                编辑：
+                <a href="editClassPage?classId=${l.clazz.classId}">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+            </td>
+            <td>
+                解散：
+                <a id="deleteLink">
+                    <span class="glyphicon glyphicon-trash" onclick="showDeleteModal(${l.clazz.classId})">
+                </span></a>
+            </td>
         </tr>
         <tr>
             <td>班级描述：

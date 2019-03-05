@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="qsh.dao.ClassDAO">
+
+    <insert id="addClass" parameterType="qsh.entity.Class" useGeneratedKeys="true" keyProperty="classId">
+        insert into class
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            class_name,
+            <if test='academy != null and academy != "" '>
+                academy,
+            </if>
+            <if test='description != null and description != "" '>
+                description,
+            </if>
+            <if test='image != null and image != "" '>
+                image,
+            </if>
+            <if test='adminId != null and adminId != "" '>
+                admin_id,
+            </if>
+            <if test='schoolId != null and schoolId != "" '>
+                school_id
+            </if>
+        </trim>
+
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            #{className},
+            <if test='academy != null and academy != "" '>
+                #{academy},
+            </if>
+            <if test='description != null and description != "" '>
+                #{description},
+            </if>
+            <if test='image != null and image != "" '>
+                #{image},
+            </if>
+            <if test='adminId != null and adminId != "" '>
+                #{adminId},
+            </if>
+            <if test='schoolId != null and schoolId != "" '>
+                #{schoolId}
+            </if>
+        </trim>
+    </insert>
+
+
+    <update id="updateClass">
+        update class
+        <trim prefix="set" suffixOverrides=",">
+            <if test='className != null and className != "" '>
+                class_name = #{className},
+            </if>
+            <if test='academy != null '>
+                academy = #{academy},
+            </if>
+            <if test='description != null '>
+                description = #{description},
+            </if>
+            <if test='image != null '>
+                image = #{image},
+            </if>
+            <if test='adminId != null'>
+                admin_id = #{adminId},
+            </if>
+            <if test='schoolId != null '>
+                school_id = #{schoolId}
+            </if>
+        </trim>
+        where class_id = #{classId}
+    </update>
+
+
+</mapper>
