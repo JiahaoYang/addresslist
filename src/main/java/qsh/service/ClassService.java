@@ -25,10 +25,7 @@ public class ClassService {
 
     public Class getById(int classId) {
         Class clazz = classDAO.getById(classId);
-        User user = userDAO.getById(clazz.getAdminId());
-        School school = schoolDAO.getById(clazz.getSchoolId());
-        clazz.setAdmin(user);
-        clazz.setSchool(school);
+        setAdminSchool(clazz);
         return clazz;
     }
 
@@ -59,4 +56,20 @@ public class ClassService {
         relationDAO.deleteByClass(classId);
         return classDAO.deleteById(classId);
     }
+
+    public List<Class> list() {
+        List<Class> classes = classDAO.list();
+        for (Class clazz: classes) {
+            setAdminSchool(clazz);
+        }
+        return  classes;
+    }
+
+    private void setAdminSchool(Class clazz) {
+        User user = userDAO.getById(clazz.getAdminId());
+        School school = schoolDAO.getById(clazz.getSchoolId());
+        clazz.setAdmin(user);
+        clazz.setSchool(school);
+    }
+
 }

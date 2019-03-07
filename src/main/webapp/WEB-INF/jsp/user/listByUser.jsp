@@ -1,6 +1,36 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="../include/header.jsp" %>
 
+<script>
+    $(function () {
+        $("#confirmDelete").click(function () {
+            window.location.href = 'quitClass?classId=' + $("#quitClassId").val();
+        })
+    });
+
+    function showDeleteModal(classId) {
+        $("#quitClassId").val(classId);
+        $("#myModal").modal("show");
+    }
+</script>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button data-dismiss="modal" class="close" type="button"><span aria-hidden="true">×</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">确认退出该班级？</h4>
+                <input id="quitClassId" type="hidden" value="">
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+                <button id="confirmDelete" class="btn btn-primary" type="button">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%@include file="../include/nagivator.jsp" %>
 <br>
@@ -8,6 +38,9 @@
 <h3>我加入的班级</h3>
 <table class="table table-hover">
     <c:forEach items="${list}" var="l">
+        <c:if test="${l.clazz.adminId != pageContext.session.getAttribute('user').userId}">
+            <a class="btn btn-danger" onclick="showDeleteModal(${l.clazz.classId})">退出</a>
+        </c:if>
         <tr>
             <td>班级名：${l.clazz.className}</td>
             <td>所属学院：

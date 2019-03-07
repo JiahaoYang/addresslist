@@ -16,13 +16,19 @@
             <ul class="nav navbar-nav">
                 <li><a href="listByUser">我加入的班级</a></li>
                 <li><a href="listByAdmin">我管理的班级</a></li>
-                <li><a href="#contact">浏览</a></li>
+                <li><a href="listClasses">发现新班级</a></li>
             </ul>
             <ul class="pull-right nav navbar-nav">
                 <li>
                     <a href="user?userId=${pageContext.session.getAttribute("user").userId}">
                         ${pageContext.session.getAttribute("user").username}
-                    </a></li>
+                    </a>
+                </li>
+                <li>
+                    <a href="message">
+                        通知
+                    </a>
+                </li>
                 <li>
                     <a href="settings?userId=${pageContext.session.getAttribute("user").userId}" class="glyphicon glyphicon-cog">
                     </a>

@@ -23,4 +23,10 @@ public interface RelationDAO {
 
     @Delete(" delete from relation where class_id=#{classId}")
     int deleteByClass(int classId);
+
+    @Select(" select * from relation where user_id=#{userId} and class_id=#{classId} ")
+    List<Relation> judgeIn(int userId, int classId);
+
+    @Delete(" delete from relation where user_id=#{userId} and class_id=#{classId} ")
+    int delete(int userId, int classId);
 }

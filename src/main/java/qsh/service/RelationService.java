@@ -80,4 +80,14 @@ public class RelationService {
         }
         return result;
     }
+
+    public boolean judgeIn(int userId, int classId) {
+        List<Relation> relations = relationDAO.judgeIn(userId, classId);
+        return relations != null && relations.size() != 0;
+    }
+
+    public int delete(int userId, int classId) {
+        return relationDAO.delete(userId, classId);
+    }
+
 }

@@ -20,4 +20,7 @@ public interface ClassDAO {
     int addClass(Class clazz);
 
     int updateClass(Class clazz);
+
+    @Select(" select * from class ")
+    List<Class> list();
 }
