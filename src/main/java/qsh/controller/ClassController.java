@@ -34,6 +34,9 @@ public class ClassController {
     @Autowired
     private MessageService messageService;
 
+    @Autowired
+    private ImageService imageService;
+
     @RequestMapping("listByAdmin")
     public String listByAdmin(Model model, Page page, HttpSession session) {
         PageHelper.offsetPage(page.getStart(), page.getCount());
@@ -65,6 +68,7 @@ public class ClassController {
 
     @RequestMapping("deleteClass")
     public String deleteClass(int classId) {
+        imageService.deleteByClass(classId);
         classService.deleteById(classId);
         return "redirect:listByAdmin";
     }

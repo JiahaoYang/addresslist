@@ -3,14 +3,12 @@ package qsh.service;
 import org.springframework.stereotype.Service;
 import qsh.dao.*;
 import qsh.dto.ListByUserDTO;
+import qsh.entity.*;
 import qsh.entity.Class;
-import qsh.entity.Relation;
-import qsh.entity.User;
 
 import javax.annotation.Resource;
 import java.util.*;
 
-@SuppressWarnings("ALL")
 @Service
 public class RelationService {
 
@@ -21,6 +19,7 @@ public class RelationService {
 
     @Resource
     private ClassService classService;
+
 
     public int addRelation(Relation relation) {
         return relationDAO.addRelation(relation);

@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 public class Image {
 
     private Integer imageId;
-    private String path;
-    private Integer userId;
+    private String suffix;
+    private Integer refClass;
 
     public Integer getImageId() {
         return imageId;
@@ -17,28 +17,19 @@ public class Image {
         this.imageId = imageId;
     }
 
-    public String getPath() {
-        return path;
+    public String getSuffix() {
+        return suffix;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setSuffix(String suffix) {
+        this.suffix = suffix;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getRefClass() {
+        return refClass;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "Image{" +
-                "imageId=" + imageId +
-                ", path='" + path + '\'' +
-                ", userId=" + userId +
-                '}';
+    public void setRefClass(Integer refClass) {
+        this.refClass = refClass;
     }
 }

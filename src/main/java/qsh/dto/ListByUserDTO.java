@@ -1,8 +1,8 @@
 package qsh.dto;
 
 import org.springframework.stereotype.Component;
+import qsh.entity.*;
 import qsh.entity.Class;
-import qsh.entity.User;
 
 import java.util.List;
 
@@ -27,4 +27,5 @@ public class ListByUserDTO {
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
 }
