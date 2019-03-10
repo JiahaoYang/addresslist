@@ -67,6 +67,7 @@ public class ClassController {
     }
 
     @RequestMapping("deleteClass")
+    @Transactional
     public String deleteClass(int classId) {
         imageService.deleteByClass(classId);
         classService.deleteById(classId);
@@ -115,6 +116,7 @@ public class ClassController {
     }
 
     @RequestMapping("quitClass")
+    @Transactional
     public String quitClass(HttpSession session, int classId) {
         User user = (User) session.getAttribute("user");
         relationService.delete(user.getUserId(), classId);

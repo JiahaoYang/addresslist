@@ -63,7 +63,7 @@ public class UserController {
             if (user.getUserType().equals("用户"))
                 return "redirect:listByUser";
             else
-                return "redirect:adminHome";
+                return "redirect:listSchools";
         }
         model.addAttribute("msg", "用户名或密码错误");
         return "loginPage";
@@ -112,5 +112,7 @@ public class UserController {
             return "";
         return "wrong";
     }
+
+
 
 }

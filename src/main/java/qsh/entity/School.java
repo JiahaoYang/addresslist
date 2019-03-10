@@ -11,6 +11,8 @@ public class School {
     private String description;
     private Integer adminId;
 
+    private User admin;
+
     public Integer getSchoolId() {
         return schoolId;
     }
@@ -51,6 +53,14 @@ public class School {
         this.adminId = adminId;
     }
 
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
+    }
+
     @Override
     public String toString() {
         return "School{" +
@@ -61,4 +71,6 @@ public class School {
                 ", adminId=" + adminId +
                 '}';
     }
+
+
 }

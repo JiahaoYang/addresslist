@@ -18,9 +18,9 @@
         <form method="post" action="addClass">
             <br/>
             <br/>
-            <input id="className" name="className" class="form-control"  placeholder="班级名称" required="required">
+            <input id="className" name="className" class="form-control" placeholder="班级名称" required="required">
             <br>
-            <input name="academy" class="form-control"  placeholder="所属学院（选填）">
+            <input name="academy" class="form-control" placeholder="所属学院（选填）">
             <br>
             <select class="form-control" name="schoolId">
                 <c:forEach items="${schools}" var="school">
@@ -28,11 +28,10 @@
                 </c:forEach>
             </select>
             <br>
-            <input name="description" class="form-control"  placeholder="班级描述（选填）">
+            <input name="description" class="form-control" placeholder="班级描述（选填）">
             <br/>
             <br/>
             <button class="btn btn-lg btn-primary btn-block " id="registerBtn" type="submit">提交</button>
         </form>
     </div>
-</div>
 </div>

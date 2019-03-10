@@ -50,6 +50,7 @@ public class MessageController {
     }
 
     @RequestMapping("reject")
+    @Transactional
     public String reject(int messageId) {
         Message oldMessage = messageService.getById(messageId);
         messageService.deleteById(messageId);
