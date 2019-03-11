@@ -23,6 +23,13 @@ public class RelationController {
     private RelationService relationService;
 
 
+    /**
+     * 我加入的班级
+     * @param model
+     * @param page
+     * @param session
+     * @return
+     */
     @RequestMapping("listByUser")
     public String listByUser(Model model, Page page, HttpSession session) {
         PageHelper.offsetPage(page.getStart(), page.getCount());

@@ -21,7 +21,13 @@ public class MessageController {
     private RelationService relationService;
 
 
-
+    /**
+     * 想班级管理员发送申请加入的信息
+     * @param session
+     * @param toUser
+     * @param refClass
+     * @return
+     */
     @RequestMapping("apply")
     public String apply(HttpSession session, int toUser, int refClass) {
         Message message = new Message();
@@ -34,6 +40,12 @@ public class MessageController {
         return "redirect:listClasses";
     }
 
+    /**
+     * 查看所有通知
+     * @param session
+     * @param model
+     * @return
+     */
     @RequestMapping("message")
     public String message(HttpSession session, Model model) {
         User user = (User) session.getAttribute("user");
@@ -49,6 +61,11 @@ public class MessageController {
         return "redirect:message";
     }
 
+    /**
+     * 拒绝用户的加入请求，删除申请加入的加入信息
+     * @param messageId
+     * @return
+     */
     @RequestMapping("reject")
     @Transactional
     public String reject(int messageId) {
@@ -63,6 +80,11 @@ public class MessageController {
         return "redirect:message";
     }
 
+    /**
+     * 同意加入请求，删除加入信息，添加加入信息至relation表
+     * @param messageId
+     * @return
+     */
     @RequestMapping("approve")
     @Transactional
     public String approve(int messageId) {

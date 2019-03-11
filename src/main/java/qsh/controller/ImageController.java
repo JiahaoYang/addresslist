@@ -27,6 +27,13 @@ public class ImageController {
     @Autowired
     private ClassService classService;
 
+    /**
+     * 班级管理人上传一张图片，图片保存在webapp/static/img/class/图片上传至哪个class的id/图片的imageId
+     * @param image
+     * @param request
+     * @param classId
+     * @return
+     */
     @RequestMapping("upload")
     @ResponseBody
     public String upload(Image image, HttpServletRequest request, int classId) {
@@ -55,6 +62,13 @@ public class ImageController {
         return "上传成功";
     }
 
+    /**
+     * 照片墙，列出所有班级图片，如果当前用户为班级管理员，可删除照片墙的图片
+     * @param classId
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping("listImages")
     public String listImages(int classId, Model model, HttpSession session) {
         List<Image> images = imageService.getByClass(classId);
@@ -64,6 +78,12 @@ public class ImageController {
         return "user/listImages";
     }
 
+    /**
+     * 删除图片
+     * @param imageId
+     * @param classId
+     * @return
+     */
     @RequestMapping("deleteImage")
     public String deleteImage(int imageId, int classId) {
         imageService.deleteById(imageId);
