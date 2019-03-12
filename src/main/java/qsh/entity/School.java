@@ -7,7 +7,6 @@ public class School {
 
     private Integer schoolId;
     private String schoolName;
-    private String image;
     private String description;
     private Integer adminId;
 
@@ -27,14 +26,6 @@ public class School {
 
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getDescription() {
@@ -66,7 +57,6 @@ public class School {
         return "School{" +
                 "schoolId=" + schoolId +
                 ", schoolName='" + schoolName + '\'' +
-                ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
                 ", adminId=" + adminId +
                 '}';

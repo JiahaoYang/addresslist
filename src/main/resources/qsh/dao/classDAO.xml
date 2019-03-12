@@ -14,9 +14,6 @@
             <if test='description != null and description != "" '>
                 description,
             </if>
-            <if test='image != null and image != "" '>
-                image,
-            </if>
             <if test='adminId != null and adminId != "" '>
                 admin_id,
             </if>
@@ -32,9 +29,6 @@
             </if>
             <if test='description != null and description != "" '>
                 #{description},
-            </if>
-            <if test='image != null and image != "" '>
-                #{image},
             </if>
             <if test='adminId != null and adminId != "" '>
                 #{adminId},
@@ -57,9 +51,6 @@
             </if>
             <if test='description != null '>
                 description = #{description},
-            </if>
-            <if test='image != null '>
-                image = #{image},
             </if>
             <if test='adminId != null'>
                 admin_id = #{adminId},

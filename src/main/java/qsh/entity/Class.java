@@ -10,7 +10,6 @@ public class Class {
     private String academy;
     private String description;
     private Integer adminId;
-    private String image;
     private Integer schoolId;
 
     private User admin;
@@ -72,14 +71,6 @@ public class Class {
         this.adminId = adminId;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public Integer getSchoolId() {
         return schoolId;
     }
@@ -96,7 +87,6 @@ public class Class {
                 ", academy='" + academy + '\'' +
                 ", description='" + description + '\'' +
                 ", adminId=" + adminId +
-                ", image='" + image + '\'' +
                 ", schoolId=" + schoolId +
                 '}';
     }

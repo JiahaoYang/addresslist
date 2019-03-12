@@ -29,9 +29,6 @@
             <if test='birthday != null and birthday != "" '>
                 birthday,
             </if>
-            <if test='image != null and image != "" '>
-                image
-            </if>
         </trim>
 
         <trim prefix="values(" suffix=")" suffixOverrides=",">
@@ -56,9 +53,6 @@
             </if>
             <if test='birthday != null and birthday != "" '>
                 #{birthday},
-            </if>
-            <if test='image != null and image != "" '>
-                #{image}
             </if>
         </trim>
     </insert>
@@ -92,9 +86,6 @@
             </if>
             <if test='birthday != null and birthday != "" '>
                 birthday = #{birthday},
-            </if>
-            <if test='image != null and image != "" '>
-                image = #{image}
             </if>
         </trim>
         where user_id = #{userId}

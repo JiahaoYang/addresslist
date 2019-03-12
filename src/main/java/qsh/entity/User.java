@@ -15,7 +15,6 @@ public class User {
     private String description;
     private String gender;
     private String birthday;
-    private String image;
 
     public Integer getUserId() {
         return userId;
@@ -97,14 +96,6 @@ public class User {
         this.birthday = birthday;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -118,7 +109,6 @@ public class User {
                 ", description='" + description + '\'' +
                 ", gender='" + gender + '\'' +
                 ", birthday=" + birthday +
-                ", image='" + image + '\'' +
                 '}';
     }
 }
