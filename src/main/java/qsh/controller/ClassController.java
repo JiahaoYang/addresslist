@@ -138,7 +138,7 @@ public class ClassController {
      */
     @RequestMapping("listClasses")
     public String listClasses(Model model, Page page, HttpSession session) {
-        page.setCount(5);
+        page.setCount(10);
         PageHelper.offsetPage(page.getStart(), page.getCount());
         List<Class> classes = classService.list();
         int total = (int) new PageInfo<>(classes).getTotal();

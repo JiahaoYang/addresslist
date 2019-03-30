@@ -43,5 +43,4 @@ public class RelationController {
         return "user/listByUser";
     }
 
-
 }

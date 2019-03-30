@@ -9,6 +9,36 @@
     });
 </script>
 
+<script>
+    $(function () {
+        $("#username").blur(function () {
+            var user = {"username": $("#username").val(), "oldName": $("#oldName").val()};
+            $.ajax(
+                {
+                    url: "checkName_",
+                    type: "post",
+                    data: user,
+                    success: function (data) {
+                        if (data === "exist") {
+                            $("#errorMessage").text("该用户名已被注册");
+                            $("#errorDiv").show();
+                            $("#registerBtn").attr("disabled", true);
+
+                        } else {
+                            $("#errorDiv").hide();
+                            $("#registerBtn").attr("disabled", false);
+                        }
+                    }
+                }
+            )
+        });
+
+        $("form.input").keyup(function () {
+            $("#errorDiv").hide();
+        });
+
+    });
+</script>
 <%@include file="../include/nagivator.jsp" %>
 <br>
 <br>
