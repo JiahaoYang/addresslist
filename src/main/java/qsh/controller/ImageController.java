@@ -75,6 +75,7 @@ public class ImageController {
         model.addAttribute("images", images);
         User user = (User) session.getAttribute("user");
         model.addAttribute("isAdmin", classService.getById(classId).getAdminId().equals(user.getUserId()));
+        model.addAttribute("classId", classId);
         return "user/listImages";
     }
 

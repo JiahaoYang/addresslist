@@ -49,7 +49,6 @@
             </td>
             <td>管理人：${l.clazz.admin.username}</td>
             <td>所属学校：${l.clazz.school.schoolName}</td>
-            <td><a class="btn btn-info" href="listImages?classId=${l.clazz.classId}" role="button">照片墙</a></td>
             <td>
                 编辑：
                 <a href="editClassPage?classId=${l.clazz.classId}">
@@ -69,6 +68,11 @@
                     ${l.clazz.description}
                 </c:if>
             </td>
+            <td></td>
+            <td></td>
+            <td><a class="btn btn-info" href="listImages?classId=${l.clazz.classId}" role="button">照片墙</a></td>
+            <td><a class="btn btn-primary" href="listWords?classId=${l.clazz.classId}" role="button">留言板</a></td>
+            <td><a class="btn btn-default" href="listVideos?classId=${l.clazz.classId}" role="button">视频站</a></td>
         </tr>
         <tr>
             <th>姓名</th>
