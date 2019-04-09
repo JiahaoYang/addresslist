@@ -8,6 +8,7 @@
 <h3>学校管理</h3>
 <a class="btn btn-success" href="addSchoolPage">新建学校</a>
 <br>
+<br>
 <table class="table table-hover">
     <tr>
         <th>学校名</th>

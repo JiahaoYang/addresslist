@@ -140,7 +140,7 @@ public class UserController {
         userService.updateUser(user);
         model.addAttribute("user", user);
         session.setAttribute("user", user);
-        return "redirect:user?userId=" + user.getUserId();
+        return "redirect:listByUser";
     }
 
     /**
@@ -165,7 +165,7 @@ public class UserController {
     @RequestMapping("editPassword")
     public String editPassword(String password, String username) {
         userService.updatePassword(username, password);
-        return "user/editUser";
+        return "redirect:listByUser";
     }
 
     /**
